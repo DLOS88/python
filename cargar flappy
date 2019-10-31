@@ -1,0 +1,13 @@
+Descargar todo del link: https://github.com/apdaza/pygame
+Abrir ‘cmd’
+Digitar lo siguiente
+C:\Python27\Scripts>pip install pygame
+C:\>SET PATH=%PATH%;C:\Python27
+C:\>D:
+D:\cd python/ pygame-master/flappy
+D:\python\pygame-master\flappy>python principal.py
+
+Con cd/ me devuelvo
+
+
+En caso de querer generar solo un ejecutable se puede tener py2exe 3.7 eso me sirve para la empresa.
