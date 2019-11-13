@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+     <title>Actividades</title>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/default.css') }}">
+   </head>
+   <body>
+      <nav>
+         <a href = "{{ url_for('show_all') }}">Show All Act</a> |
+         <a href = "{{ url_for('new') }}">Add Act</a>
+      </nav>
+
+      <aside>
+        {%- for message in get_flashed_messages() %}
+           {{ message }}
+        {%- endfor %}
+      </aside>
+      <section>      
+        <h3>Students</h3>
+
+        <table>
+           <thead>
+              <tr>
+                 <th>N°</th>
+                 <th>Name</th>
+                 <th>Responsable</th>
+                 <th>Pin</th>
+                 <th colspan="2">Acctions</th>
+              </tr>
+           </thead>
+
+           <tbody>
+              {% for tar in tarea %}
+                 <tr>
+                    <td>{{ tar.numero }}</td>
+                    <td>{{ tar.nombre }}</td>
+                    <td>{{ tar.responsable }}</td>
+                    <td>{{ tar.pin }}</td>
+                    <td>
+                      <form method="POST" action="/update" style="display: inline">
+                        <input type="hidden" value="{{tar.numero}}" name="oldname">
+                        <input type="submit" value="Update">
+                      </form>
+                    </td>
+                    <td>
+                      <form method="POST" action="/delete" style="display: inline">
+                        <input type="hidden" value="{{tar.numero}}" name="oldname">
+                        <input type="submit" value="Delete">
+                      </form>
+                    </td>
+                 </tr>
+              {% endfor %}
+           </tbody>
+        </table>
+
+    </section>
+
+   </body>
+</html>
